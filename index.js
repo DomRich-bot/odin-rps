@@ -50,11 +50,31 @@
 
  
  function game(){
+    let playerScore = 0;
+    let computerScore = 0;
     console.log("Game On")
     for (let i = 0; i < 5; i++) {
         const playerSelection = getPlayerChoice();
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection,computerSelection));
+        
+        if (checkWinner(playerSelection,computerSelection) == "Player"){
+            playerScore++
+        } 
+        else if (checkWinner(playerSelection, computerSelection) == "Computer"){
+            computerScore++
+        } 
+        console.log("Player Score: "+ playerScore + "\nComputer Score "+ computerScore)
+     }
+     console.log("Game Over")
+     if (playerScore > computerScore){
+        alert("You Win")   
+     }
+     else if (playerScore < computerScore){
+        alert("You Lose")
+     }
+     else{
+        alert("We have a TIE")
      }
  }
 
